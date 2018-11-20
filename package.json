@@ -1,0 +1,13 @@
+{
+  "name": "endoscope",
+  "version": "1.0.0",
+  "main": "./endoscope.js",
+  "types": "./endoscope.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
