@@ -1,6 +1,8 @@
 # Endoscope
 
-Endoscope is a library for creating and exposing healthchecks for Docker and Kubernetes.
+[![CircleCI](https://circleci.com/gh/witq/endoscope.svg?style=svg)](https://circleci.com/gh/witq/endoscope)
+
+Endoscope is a Node.js library for creating and exposing healthchecks.
 
 ## Usage
 
@@ -122,9 +124,9 @@ The created healthcheck routes will be `/someprefix` and `/someprefix/:level`.
 
 By default, all probes are created with level `0`. When running the probes, by default all probes with level `0` are run.
 
-If you only require basic `liveness` healthcheck, this is all you need to use.
+If you only require basic `liveness` check, this is all you need to use.
 
-For more advanced cases, where the app may be `alive` and should not be killed by the orchestrator but is not ready to work, higher level healthcheck can be used, like for example the `readyness` healtchcheck in kubernetes.
+For more advanced cases, where the app may be `alive` and should not be killed by the orchestrator but is not ready to work, a higher level check can be used, like for example the `readiness` check in kubernetes.
 
 When a level is provided to the endoscope endpoint, only probes with the level provided _or lower_ are run.
 

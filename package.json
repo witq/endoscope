@@ -1,9 +1,14 @@
 {
   "name": "endoscope",
-  "version": "1.0.0",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Witek Galecki"
+  },
+  "repository": "github:witq/endoscope",
   "main": "./endoscope.js",
   "types": "./endoscope.d.ts",
-  "license": "MIT",
+  "bin": "./lib/bin.js",
   "scripts": {
     "test": "jest"
   },
