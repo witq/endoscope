@@ -6,6 +6,6 @@ const endoscopeInstance = new Endoscope();
 
 module.exports = {
   endoscopeInstance,
-  expressEndoscope: connectEndoscope(expressEndoscope),
+  expressEndoscope: expressEndoscope(endoscopeInstance),
   fastifyEndoscope: fastifyEndoscope(endoscopeInstance)
 };
