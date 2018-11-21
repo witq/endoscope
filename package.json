@@ -10,9 +10,17 @@
   "types": "./endoscope.d.ts",
   "bin": "./lib/bin.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:ci": "jest --coverage"
   },
   "devDependencies": {
     "jest": "^23.6.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "lib/*.js"
+    ],
+    "coverageReporters": ["lcov"],
+    "coverageDirectory": "./coverage"
   }
 }

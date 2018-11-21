@@ -5,25 +5,19 @@
 version: 2
 jobs:
   build:
+    environment:
+      CC_TEST_REPORTER_ID: 289a37fef4350c142f5d1c1ca5f70a571fc5193ff3a9a2dae08806fa2099b389
     docker:
-      # specify the version you desire here
       - image: circleci/node:10.13
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
 
     working_directory: ~/repo
 
     steps:
       - checkout
 
-      # Download and cache dependencies
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
       - run: yarn
@@ -32,6 +26,16 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
         
-      # run tests!
-      - run: yarn test
+      - run:
+          name: Run tests
+          command: |
+            ./cc-test-reporter before-build
+            yarn test:ci
+            ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
