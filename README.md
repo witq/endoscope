@@ -1,10 +1,11 @@
 # Endoscope
 
+A Node.js library for creating and exposing healthchecks.
+
 [![CircleCI](https://circleci.com/gh/witq/endoscope.svg?style=svg)](https://circleci.com/gh/witq/endoscope)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f0d34636452a31ccaf0f/test_coverage)](https://codeclimate.com/github/witq/endoscope/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/f0d34636452a31ccaf0f/maintainability)](https://codeclimate.com/github/witq/endoscope/maintainability)
+[![Dependency Status](https://david-dm.org/witq/endoscope.svg)](https://david-dm.org/witq/endoscope)
 
-Endoscope is a Node.js library for creating and exposing healthchecks.
 
 ## Usage
 
