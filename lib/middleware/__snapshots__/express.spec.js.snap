@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expressDecorator should decorate the express instance 1`] = `
+Array [
+  Array [
+    "/healthz/:level?",
+    [Function],
+  ],
+]
+`;
+
+exports[`expressDecorator should respect the prefix option 1`] = `
+Array [
+  Array [
+    "/:level?",
+    [Function],
+  ],
+]
+`;

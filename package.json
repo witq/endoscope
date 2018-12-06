@@ -11,6 +11,7 @@
   "bin": "./lib/bin.js",
   "scripts": {
     "test": "jest",
+    "test:watch": "npm run test -- --watch",
     "test:ci": "jest --coverage"
   },
   "devDependencies": {

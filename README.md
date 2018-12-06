@@ -27,12 +27,12 @@ Then, register a `Probe`. A `Probe` is a function that returns a `Promise` which
 endoscopeInstance.register(
   () =>
     new Promise((resolve, reject) => {
-      someService.ping(err => {
-        if (err) {
-          return reject();
+      someService.ping(error => {
+        if (error) {
+          return reject(error);
         }
 
-        resolve();
+        resolve('optional message');
       });
     })
 );
@@ -100,9 +100,11 @@ app.register(
 
 The created healthcheck routes will be `/someprefix` and `/someprefix/:level`.
 
+You can also change the response codes for successful and error responses. By default, succes
+
 ### Usage with Express
 
-Endoscope provides an express middleware that has to be mounted manually.
+Since version 1.0.0, Endoscope provides a decorator function that automatically mounts the middleware in your app.
 
 ```javascript
 import express from 'express';
@@ -110,7 +112,7 @@ import { expressEndoscope } from 'endoscope';
 
 const app = express();
 
-app.get('/healthz/:level?', expressEndoscope);
+expressEndoscope(app);
 ```
 
 The created healthcheck routes will be `/healthz` and `/healthz/:level` where level is the desired level of the healthcheck.

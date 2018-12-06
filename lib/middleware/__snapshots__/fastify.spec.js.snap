@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fastifyMiddleware should register a plugin in fastify 1`] = `
+Array [
+  Array [
+    Object {
+      "handler": [Function],
+      "method": "GET",
+      "url": "/healthz/:level",
+    },
+  ],
+  Array [
+    Object {
+      "handler": [Function],
+      "method": "GET",
+      "url": "/healthz",
+    },
+  ],
+]
+`;
+
+exports[`fastifyMiddleware should respect the prefix option 1`] = `
+Array [
+  Array [
+    Object {
+      "handler": [Function],
+      "method": "GET",
+      "url": "/:level",
+    },
+  ],
+  Array [
+    Object {
+      "handler": [Function],
+      "method": "GET",
+      "url": "/",
+    },
+  ],
+]
+`;

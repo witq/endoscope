@@ -1,4 +1,4 @@
-class Endoscope {
+declare class Endoscope {
   register: (
     probe: () => Promise<any>,
     options?: {
