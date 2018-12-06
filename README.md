@@ -6,7 +6,6 @@ A Node.js library for creating and exposing healthchecks.
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f0d34636452a31ccaf0f/test_coverage)](https://codeclimate.com/github/witq/endoscope/test_coverage)
 [![Dependency Status](https://david-dm.org/witq/endoscope.svg)](https://david-dm.org/witq/endoscope)
 
-
 ## Usage
 
 Endoscope is used by registering probes and exposing their results via a web app framework of your choice.
@@ -85,22 +84,23 @@ app.register(fastifyEndoscope);
 
 The created healthcheck routes will be `/healthz` and `/healthz/:level` where level is the desired level of the healthcheck.
 
-If you want to change the healthcheck prefix, you can do so during registration.
+#### Options
+
+The prefix, response codes and default healthcheck level can be configured during registration.
 
 ```javascript
 app.register(
   fastifyEndoscope,
   {
     endoscope: {
-      prefix: '/someprefix',
+      prefix: '/healthz',
+      successCode: 200,
+      errorCode: 500,
+      defaultLevel: 0,
     },
   },
 );
 ```
-
-The created healthcheck routes will be `/someprefix` and `/someprefix/:level`.
-
-You can also change the response codes for successful and error responses. By default, succes
 
 ### Usage with Express
 
@@ -117,13 +117,18 @@ expressEndoscope(app);
 
 The created healthcheck routes will be `/healthz` and `/healthz/:level` where level is the desired level of the healthcheck.
 
-The prefix can be changed, but the `level` parameter name has to be maintained.
+#### Options
+
+The prefix, response codes and default healthcheck level can be configured during registration.
 
 ```javascript
-app.get('/someprefix/:level?', expressEndoscope);
+expressEndoscope(app, {
+  prefix: '/healthz',
+  successCode: 200,
+  errorCode: 500,
+  defaultLevel: 0,
+});
 ```
-
-The created healthcheck routes will be `/someprefix` and `/someprefix/:level`.
 
 ### Healthcheck levels
 
@@ -140,7 +145,9 @@ To use this functionality, first a probe has to be registered with a level highe
 ```javascript
 endoscopeInstance
   .register(livenessDependency.ping)
-  .register(readynessDependency.ping, { level: 1 })
+  .register(readinessDependency.ping, { level: 1 })
 ```
 
-Then, when `/healthz` or `/healthz/0` is called, only `livenessDependency.ping` will be run. But if `/healthz/1` is called, both `livenessDependency.ping` and `readynessDependency.ping` meaning that the app is alive AND ready.
+Then, when `/healthz` or `/healthz/0` is called, only `livenessDependency.ping` will be run. But if `/healthz/1` is called, both `livenessDependency.ping` and `readinessDependency.ping` meaning that the app is alive AND ready.
+
+The behavior of calling `/healthz` without level parameter can be altered using the `defaultLevel` option described above.
