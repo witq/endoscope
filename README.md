@@ -130,6 +130,32 @@ expressEndoscope(app, {
 });
 ```
 
+### Usage with raw http server
+
+For the minimalists out there, a http request handler is provided. This is useful if your app does not expose any other endpoints and you want to minimize the number of dependencies.
+
+```javascript
+import { createServer } from 'http';
+import { httpEndoscope } from 'endoscope';
+
+createServer(httpEndoscope()).listen(8080);
+```
+
+#### Options
+
+The prefix, response codes and default healthcheck level can be configured during registration.
+
+```javascript
+createServer(
+  httpEndoscope({
+    prefix: '/healthz',
+    successCode: 200,
+    errorCode: 500,
+    defaultLevel: 0,
+  })
+).listen(8080);
+```
+
 ### Healthcheck levels
 
 By default, all probes are created with level `0`. When running the probes, by default all probes with level `0` are run.

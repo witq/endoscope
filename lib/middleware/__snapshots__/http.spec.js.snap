@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`httpHandler should respect the errorCode option 1`] = `
+Array [
+  Array [
+    666,
+    Object {
+      "Content-Type": "application/json",
+    },
+  ],
+]
+`;
+
+exports[`httpHandler should respect the errorCode option 2`] = `
+Array [
+  Array [
+    "",
+  ],
+]
+`;
+
+exports[`httpHandler should respect the successCode option 1`] = `
+Array [
+  Array [
+    666,
+    Object {
+      "Content-Type": "application/json",
+    },
+  ],
+]
+`;
+
+exports[`httpHandler should respect the successCode option 2`] = `
+Array [
+  Array [
+    "[]",
+  ],
+]
+`;
+
+exports[`httpHandler should return 404 status for urls other than prefix 1`] = `
+Array [
+  Array [
+    404,
+  ],
+]
+`;
+
+exports[`httpHandler should return 404 status for urls other than prefix 2`] = `
+Array [
+  Array [],
+]
+`;
+
+exports[`httpHandler should return error result 1`] = `
+Array [
+  Array [
+    500,
+    Object {
+      "Content-Type": "application/json",
+    },
+  ],
+]
+`;
+
+exports[`httpHandler should return error result 2`] = `
+Array [
+  Array [
+    "err",
+  ],
+]
+`;
+
+exports[`httpHandler should return successful result 1`] = `
+Array [
+  Array [
+    200,
+    Object {
+      "Content-Type": "application/json",
+    },
+  ],
+]
+`;
+
+exports[`httpHandler should return successful result 2`] = `
+Array [
+  Array [
+    "[\\"ok\\"]",
+  ],
+]
+`;
