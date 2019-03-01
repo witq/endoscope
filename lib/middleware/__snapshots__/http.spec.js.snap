@@ -5,7 +5,7 @@ Array [
   Array [
     666,
     Object {
-      "Content-Type": "application/json",
+      "Content-Type": "text/plain",
     },
   ],
 ]
@@ -57,7 +57,7 @@ Array [
   Array [
     500,
     Object {
-      "Content-Type": "application/json",
+      "Content-Type": "text/plain",
     },
   ],
 ]

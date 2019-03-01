@@ -1,6 +1,6 @@
 {
   "name": "endoscope",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "MIT",
   "author": {
     "name": "Witek Galecki"
@@ -24,13 +24,15 @@
     "test:ci": "jest --coverage"
   },
   "devDependencies": {
-    "jest": "^23.6.0"
+    "jest": "^24.1.0"
   },
   "jest": {
     "collectCoverageFrom": [
       "lib/*.js"
     ],
-    "coverageReporters": ["lcov"],
+    "coverageReporters": [
+      "lcov"
+    ],
     "coverageDirectory": "./coverage"
   }
 }
