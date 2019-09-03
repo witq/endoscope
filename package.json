@@ -24,7 +24,7 @@
     "test:ci": "jest --coverage"
   },
   "devDependencies": {
-    "jest": "^24.1.0"
+    "jest": "^24.9.0"
   },
   "jest": {
     "collectCoverageFrom": [
